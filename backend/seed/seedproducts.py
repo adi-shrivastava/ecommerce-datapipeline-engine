@@ -10,7 +10,7 @@ categories={"Electronics":["Speakers","Laptops","AC","Washing Machines"],
             "Fashion":["Jeans","Top","Jacket","LooseFit","Sneakers","Formals"],
             "Home":["Chair","Lamp","Table"]
             }
-productid=0
+productid=1
 for category,products in categories.items():
     
     for product in products:
