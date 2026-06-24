@@ -1,4 +1,4 @@
-from sklearn.metrics.pairwise import code_similiarity
+from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 from db import conn,cursor
 query="""select userid,productid,
@@ -24,4 +24,10 @@ matrix=df.pivot_table(
 # print(matrix.sum(axis=0).sort_values(ascending=False))
 # print(matrix.sum(axis=1).sort_values(ascending=False))
 # print(matrix.loc[68].sort_values(ascending=False))
-# print(matrix.stack().sort_values(ascending=False).head(10))
+print(matrix.stack().sort_values(ascending=False).head(10))
+similiarity=cosine_similarity(matrix) #For finding similiarity between two rows
+df1=pd.DataFrame(similiarity,index=matrix.index,columns=matrix.index) #
+print(df1.shape)
+print(df1.loc[68].sort_values(ascending=False))
+print(matrix.loc[834].sort_values(ascending=False))
+print(matrix.loc[68].sort_values(ascending=False))
