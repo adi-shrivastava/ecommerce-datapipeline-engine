@@ -31,5 +31,11 @@ def recommend(userid):
             else:
                 prodscores[product]+=scores
     return prodscores
-print(recommend(68))
+value=recommend(68)
+for product,score in value.items():
+    query=("""select productid,category,price from products where productid=%s""")
+
+    print("Recommendation Score : ",score)
+    
+    print(pd.read_sql(query,conn,params=(product,)))
 
