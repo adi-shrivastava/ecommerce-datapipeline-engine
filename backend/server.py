@@ -14,10 +14,10 @@ def get_recommendations(id:int):
     rows=cursor.fetchall()
     result=[]
     for productid,category,price in rows:
-        result.append(("Product ID : ",productid,
-        "Category : ",category,
-        "Price : ",price,
-        "Recommendation Score : ",recc[productid]))
+        result.append({"Product ID : ":productid,
+        "Category : ":category,
+        "Price : ":price,
+        "Recommendation Score : ":recc[productid]})
     return {"message":"That's recommendation endpoint", "recommendations": result}
     # result=[]
     # for product,score in recc.items():
